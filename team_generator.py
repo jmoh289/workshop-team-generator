@@ -30,6 +30,7 @@ with col_fix:
     if st.button("✅ 게임명 확정", disabled=st.session_state.games_fixed):
         st.session_state.game_names = [g.strip() for g in game_input.split(",") if g.strip()]
         st.session_state.games_fixed = True
+        st.rerun()
 
 with col_edit:
     if st.button("✏️ 수정하기", disabled=not st.session_state.games_fixed):
