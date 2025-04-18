@@ -67,7 +67,17 @@ with col_fix:
 with col_edit:
     if st.button("✏️ 수정하기", disabled=not st.session_state.games_fixed):
         st.session_state.games_fixed = False
+
+        # teams.json 파일도 수정
+        if os.path.exists(TEAM_FILE):
+            with open(TEAM_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            data["games_fixed"] = False
+            with open(TEAM_FILE, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+
         st.rerun()
+
 
 # 🎲 랜덤 팀 배정
 if st.button("🎲 팀 랜덤 배정하기", disabled=st.session_state.team_fixed):
