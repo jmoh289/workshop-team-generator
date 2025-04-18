@@ -62,6 +62,7 @@ if st.button("✅ 팀 확정하기", disabled=st.session_state.team_fixed):
             "team2": st.session_state.team2,
             "result_shown": False
         }, f, ensure_ascii=False, indent=2)
+    st.rerun()  # 👈 상태 즉시 반영
 
 # 🔄 팀 구성 초기화 버튼 (언제든지 누를 수 있음)
 if st.button("🔄 팀 구성 초기화"):
