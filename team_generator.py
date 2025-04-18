@@ -117,14 +117,12 @@ if st.session_state.team1 and st.session_state.team2:
         st.warning("⏳ 팀이 아직 확정되지 않았습니다.")
 
 # 🏆 점수 입력 (팀 확정 후에만)
-if st.session_state.team_fixed:
-    st.markdown("---")
+if st.session_state.games_fixed:
     st.header("🏆 게임 점수판")
-
     team1_total = 0
     team2_total = 0
 
-    for game in GAME_LIST:
+    for game in st.session_state.game_names:
         st.markdown(f"**🎮 {game}**")
         col1, col2 = st.columns(2)
         with col1:
@@ -134,6 +132,7 @@ if st.session_state.team_fixed:
 
         team1_total += score1
         team2_total += score2
+
 
     st.markdown("---")
     st.subheader("📣 총점 결과")
