@@ -8,8 +8,33 @@ st.set_page_config(page_title="워크숍 팀 배정기", page_icon="🎯")
 st.title("🟢 워크숍 팀 랜덤 배정기 + 점수판")
 
 TEAM_FILE = "teams.json"
-game_input = st.text_input("🎯 참가 게임명을 쉼표로 입력하세요", "제기차기, 릴레이 달리기, 퀴즈쇼")
-GAME_LIST = [g.strip() for g in game_input.split(",") if g.strip()]
+# 세션 상태 초기화
+if "game_names" not in st.session_state:
+    st.session_state.game_names = ["제기차기", "릴레이 달리기", "퀴즈쇼"]
+if "games_fixed" not in st.session_state:
+    st.session_state.games_fixed = False
+
+# 🎯 게임명 설정 UI (점수판 위에 위치)
+st.markdown("---")
+st.subheader("🎮 참가 게임명 설정")
+
+game_input = st.text_input(
+    "게임명을 쉼표로 구분하여 입력하세요",
+    ", ".join(st.session_state.game_names),
+    disabled=st.session_state.games_fixed
+)
+
+col_fix, col_edit = st.columns([1, 1])
+
+with col_fix:
+    if st.button("✅ 게임명 확정", disabled=st.session_state.games_fixed):
+        st.session_state.game_names = [g.strip() for g in game_input.split(",") if g.strip()]
+        st.session_state.games_fixed = True
+
+with col_edit:
+    if st.button("✏️ 수정하기", disabled=not st.session_state.games_fixed):
+        st.session_state.games_fixed = False
+
 
 # 🧩 초기 세션 상태 설정
 if "team_fixed" not in st.session_state:
