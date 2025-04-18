@@ -11,7 +11,7 @@ TEAM_FILE = "teams.json"
 # 🔐 관리자 로그인
 st.sidebar.title("🔒 관리자 로그인")
 password = st.sidebar.text_input("비밀번호를 입력하세요", type="password")
-IS_ADMIN = password == "madadmin2025"
+IS_ADMIN = password == "7707"
 
 if not IS_ADMIN:
     st.warning("👀 현재는 읽기 전용 모드입니다. 수정하려면 좌측에서 로그인하세요.")
