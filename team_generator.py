@@ -58,7 +58,7 @@ if 'team1' in st.session_state and 'team2' in st.session_state:
     st.write(f"🟢 이사님 팀 총점: **{team1_total}점**")
     st.write(f"🔵 실장님 팀 총점: **{team2_total}점**")
 
-    if team1_total > team2_total:
+if team1_total > team2_total:
     st.success("🎉 **이사님 팀 우승!** 🥇")
 elif team2_total > team1_total:
     st.success("🎉 **실장님 팀 우승!** 🥇")
