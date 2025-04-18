@@ -3,6 +3,9 @@ import random
 import os
 import json
 
+st.set_page_config(page_title="워크숍 팀 배정기", page_icon="🎯")
+st.title("🟢 워크숍 팀 랜덤 배정기 + 점수판")
+
 # 확정된 팀 구성
 team_1 = ["신문철", "강성희", "박민영", "강희철", "조운호", "김문규", "최정우"]
 team_2 = ["장용석", "이다빈", "정아라", "김원래", "오종민", "이주용", "박준섭"]
@@ -22,9 +25,6 @@ with col2:
         st.markdown("### 🔵 **📌 실장님 팀**")
         for member in team_2:
             st.markdown(f"- {member}")
-
-st.set_page_config(page_title="워크숍 팀 배정기", page_icon="🎯")
-st.title("🟢 워크숍 팀 랜덤 배정기 + 점수판")
 
 TEAM_FILE = "teams.json"
 
