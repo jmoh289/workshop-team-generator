@@ -36,7 +36,6 @@ with col_edit:
     st.session_state.games_fixed = False
     st.rerun()
 
-
 # 🧩 초기 세션 상태 설정
 if "team_fixed" not in st.session_state:
     st.session_state.team_fixed = False
