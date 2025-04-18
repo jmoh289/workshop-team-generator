@@ -8,7 +8,8 @@ st.set_page_config(page_title="워크숍 팀 배정기", page_icon="🎯")
 st.title("🟢 워크숍 팀 랜덤 배정기 + 점수판")
 
 TEAM_FILE = "teams.json"
-GAME_LIST = ["제기차기", "릴레이 달리기", "퀴즈쇼"]
+game_input = st.text_input("🎯 참가 게임명을 쉼표로 입력하세요", "제기차기, 릴레이 달리기, 퀴즈쇼")
+GAME_LIST = [g.strip() for g in game_input.split(",") if g.strip()]
 
 # 🧩 초기 세션 상태 설정
 if "team_fixed" not in st.session_state:
