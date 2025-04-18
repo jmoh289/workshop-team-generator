@@ -75,7 +75,7 @@ if st.button("🔄 팀 구성 초기화"):
     if os.path.exists(TEAM_FILE):
         os.remove(TEAM_FILE)
 
-    st.experimental_rerun()  # 전체 앱 재실행 (초기 상태로)
+    st.rerun()  # 전체 앱 재실행 (초기 상태로)
 
 # 📌 팀 표시
 if st.session_state.team1 and st.session_state.team2:
