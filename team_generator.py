@@ -63,6 +63,20 @@ if st.button("✅ 팀 확정하기", disabled=st.session_state.team_fixed):
             "result_shown": False
         }, f, ensure_ascii=False, indent=2)
 
+# 🔄 팀 구성 초기화 버튼 (언제든지 누를 수 있음)
+if st.button("🔄 팀 구성 초기화"):
+    # 세션 상태 초기화
+    st.session_state.team_fixed = False
+    st.session_state.result_shown = False
+    st.session_state.team1 = []
+    st.session_state.team2 = []
+
+    # 저장된 파일 삭제
+    if os.path.exists(TEAM_FILE):
+        os.remove(TEAM_FILE)
+
+    st.experimental_rerun()  # 전체 앱 재실행 (초기 상태로)
+
 # 📌 팀 표시
 if st.session_state.team1 and st.session_state.team2:
     st.subheader("📌 이사님 팀")
