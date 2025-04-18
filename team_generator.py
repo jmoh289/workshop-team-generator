@@ -33,7 +33,8 @@ with col_fix:
 
 with col_edit:
     if st.button("✏️ 수정하기", disabled=not st.session_state.games_fixed):
-        st.session_state.games_fixed = False
+    st.session_state.games_fixed = False
+    st.rerun()
 
 
 # 🧩 초기 세션 상태 설정
